@@ -1,0 +1,45 @@
+<div class="wrapper" [class.sidebar-collapsed]="isSidebarCollapsed">
+  
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="logomain">ADMS</div>
+    <a (click)="Dashboard()"><i class="bi bi-speedometer2"></i> Admin Dashboard</a>
+    <a (click)="Updateprofile()" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"><i class="bi bi-person-lines-fill" ></i> Update Profile</a>
+   
+    <a (click)="RegisterEmployee()"><i class="bi bi-person-plus" ></i> Register Employee</a>
+    <a (click)="EmployeeList()"><i class="bi bi-pencil-square" ></i> Edit Employee</a>
+    <a (click)="ListofEmployee()"><i class="bi bi-people-fill" ></i> Employee List</a>
+    <a (click)="RegisterDesignation()"><i class="bi bi-people-fill" ></i> Register Designation</a>
+    <!-- <a><i class="bi bi-geo-alt"></i> Register Radius</a> -->
+    <a (click)="Attendancelist()"><i class="bi bi-clipboard-check" ></i> Attendance List</a>
+    <a (click)="CreateEmployeeUser()"><i class="bi bi-key" ></i> Create Employee User</a>
+    <a (click)="Registerradius()"><i class="fa-solid fa-earth-americas me-2" ></i> Register Radius</a>
+    <a (click)="Registerleavetype()"><i class="fa-solid fa-earth-americas" ></i> Register Leave type</a>
+    <a (click)="Approveorrejectleave()"><i class="fa-solid fa-earth-americas" ></i> Leave approve or reject</a>
+  </div>
+
+  <!-- Page Wrapper (Navbar + Content) -->
+  <div class="page-wrapper">
+    
+    <!-- Top Navbar: Full Width -->
+    <nav class="navbar">
+      <button class="btn-toggle" (click)="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="profile-menu">
+        <span>Welcome, {{username}}</span>
+        <button class="logout-btn" (click)="Logout()">Logout</button>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      &copy; 2025 ADMS. All rights reserved.
+    </footer>
+  </div>
+</div>

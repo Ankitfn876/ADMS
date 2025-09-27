@@ -1,0 +1,142 @@
+<!-- employee-dashboard.component.html -->
+<div class="container-fluid py-4">
+  <div class="row g-4">
+
+    <!-- Employee Profile Card -->
+    <div class="col-md-4">
+      <div class="card shadow rounded-4 text-center p-4">
+        <div class="mb-3">
+          <div class="bg-light border rounded-circle mx-auto" style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+            <span class="text-muted">Employee Photo</span>
+          </div>
+        </div>
+        <h5 class="fw-bold">John Doe</h5>
+        <p class="text-muted">UI/UX Designer</p>
+        <hr />
+        <p class="mb-1"><mat-icon>phone</mat-icon> +1 324 3453 545</p>
+        <p class="mb-1"><mat-icon>email</mat-icon> [email&nbsp;protected]</p>
+        <p><mat-icon>apartment</mat-icon> Doglas Martini</p>
+      </div>
+    </div>
+
+    <!-- Leave Insights -->
+    <div class="col-md-4">
+      <div class="card shadow rounded-4 p-3">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="fw-bold mb-0">Leave Insights</h6>
+          <span class="badge bg-primary">2024</span>
+        </div>
+        <p class="mb-1 fw-semibold">On Time</p>
+        <mat-progress-bar mode="determinate" [value]="90" color="primary"></mat-progress-bar>
+        <p class="mt-1 text-end text-muted small">1254</p>
+
+        <p class="mb-1 fw-semibold">Late Attendance</p>
+        <mat-progress-bar mode="determinate" [value]="15" color="accent"></mat-progress-bar>
+        <p class="mt-1 text-end text-muted small">32</p>
+
+        <p class="mb-1 fw-semibold">WFH</p>
+        <mat-progress-bar mode="determinate" [value]="70" color="warn"></mat-progress-bar>
+        <p class="mt-1 text-end text-muted small">658</p>
+
+        <p class="mb-1 fw-semibold">Absent</p>
+        <mat-progress-bar mode="determinate" [value]="5" color="warn"></mat-progress-bar>
+        <p class="mt-1 text-end text-muted small text-danger">14</p>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="col-md-4">
+      <div class="card shadow rounded-4 p-3">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="fw-bold mb-0">Summary</h6>
+          <span class="badge bg-primary">2024</span>
+        </div>
+        <div class="row text-center">
+          <div class="col-6">
+            <p class="mb-1">Total Leaves</p>
+            <h5>16</h5>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">Taken</p>
+            <h5 class="text-success">10</h5>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">Absent</p>
+            <h5 class="text-danger">2</h5>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">Requests</p>
+            <h5>0</h5>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">Worked Days</p>
+            <h5>240</h5>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">LOP</p>
+            <h5 class="text-danger">2</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Today's Attendance -->
+    <div class="col-md-6">
+      <div class="card shadow rounded-4 p-3">
+        <h6 class="fw-bold">Today’s Attendance</h6>
+        <p class="mb-1 text-primary">08:35 AM, 11 Mar 2025</p>
+        <p class="fw-semibold">Total Hours: <span class="text-success">5:45:32</span></p>
+        <div class="progress mb-2" style="height: 20px;">
+          <div class="progress-bar bg-dark text-white fw-bold" style="width: 50%">Production: 3.45 hrs</div>
+        </div>
+        <p class="mb-3">Punch In at <strong>10:00 AM</strong></p>
+        <button mat-raised-button color="primary" class="w-100">Punch Out</button>
+      </div>
+    </div>
+
+    <!-- Work Analytics -->
+    <div class="col-md-6">
+      <div class="card shadow rounded-4 p-3">
+        <h6 class="fw-bold">Work Analytics</h6>
+        <div class="row text-center mt-3">
+          <div class="col-6 col-sm-3">
+            <p>Today</p>
+            <strong>8.36 / 9</strong>
+          </div>
+          <div class="col-6 col-sm-3">
+            <p>This Week</p>
+            <strong>10 / 40</strong>
+          </div>
+          <div class="col-6 col-sm-3">
+            <p>This Month</p>
+            <strong>75 / 98</strong>
+          </div>
+          <div class="col-6 col-sm-3">
+            <p>Overtime</p>
+            <strong>16 / 28</strong>
+          </div>
+        </div>
+        <hr />
+        <div class="row text-center">
+          <div class="col-6 col-sm-3">
+            <p>Total Hours</p>
+            <strong>12h 36m</strong>
+          </div>
+          <div class="col-6 col-sm-3">
+            <p>Productive</p>
+            <strong>08h 36m</strong>
+          </div>
+          <div class="col-6 col-sm-3">
+            <p>Break</p>
+            <strong>22m 15s</strong>
+          </div>
+          <div class="col-6 col-sm-3">
+            <p>Overtime</p>
+            <strong>02h 15m</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

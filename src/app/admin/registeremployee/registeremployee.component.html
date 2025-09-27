@@ -1,0 +1,124 @@
+<div class="card shadow-sm">
+<!-- Register Employee Section -->
+ <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><mat-icon color="primary">people</mat-icon> Register Employee</h5>
+    
+  </div>
+<section class="register_section sec_ptb_120 bg_gray half_bg_white clearfix">
+  <div class="page-wrapper">
+    <div class="content p-3">
+
+      <form [formGroup]="Registerform" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <div class="row g-4">
+
+          <!-- Full Name -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Enter Full Name <span class="text-danger">*</span></mat-label>
+              <input matInput formControlName="FName" maxlength="50" autocomplete="off"
+                (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)" />
+            </mat-form-field>
+          </div>
+
+          <!-- Designation -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Select Designation</mat-label>
+              <mat-select formControlName="DesignationID">
+                <mat-option value="0">-- Select Designation --</mat-option>
+                <mat-option *ngFor="let gen of Desination" [value]="gen.id">{{ gen.designationName }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- Gender -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Select Gender <span class="text-danger">*</span></mat-label>
+              <mat-select formControlName="GenderID">
+                <mat-option value="0">-- Select Gender --</mat-option>
+                <mat-option *ngFor="let gen of Gender" [value]="gen.id">{{ gen.gender }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- Marital Status -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Select Marital Status <span class="text-danger">*</span></mat-label>
+              <mat-select formControlName="MaritalID">
+                <mat-option value="0">-- Select Marital Status --</mat-option>
+                <mat-option *ngFor="let mar of Marital" [value]="mar.id">{{ mar.marital }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- DOB -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Date of Birth <span class="text-danger">*</span></mat-label>
+              <input matInput [matDatepicker]="dobPicker" formControlName="Dob" [max]="today"
+               autocomplete="off" (keydown)="disableTyping($event)" />
+              <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+              <mat-datepicker #dobPicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <!-- Email -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Email ID <span class="text-danger">*</span></mat-label>
+              <input matInput formControlName="EmailID" type="email" maxlength="50" (blur)="BlurEmailID()" />
+            </mat-form-field>
+          </div>
+
+          <!-- Mobile -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Mobile No. <span class="text-danger">*</span></mat-label>
+              <input matInput formControlName="Mobile" maxlength="10" (blur)="BlurMobile()"
+                (keypress)="allowOnlyNumbers($event)" (paste)="preventPaste($event)" />
+            </mat-form-field>
+          </div>
+
+          <!-- Salary -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Salary</mat-label>
+              <input matInput formControlName="Salary" maxlength="10" (keypress)="allowOnlyNumbers($event)" />
+            </mat-form-field>
+          </div>
+
+          <!-- Address -->
+          <div class="col-md-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Address <span class="text-danger">*</span></mat-label>
+              <input matInput formControlName="Address" maxlength="100"
+                (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)" />
+            </mat-form-field>
+          </div>
+
+          <!-- Image Upload -->
+          <!-- <div class="col-md-3 m-2">
+            <label class="form-label">Upload Image <span class="text-muted">(Max 500kb)</span></label>
+            <input type="file" class="form-control" (change)="onImageSelected($event)" accept="image/*" />
+          </div>
+          <div class="col-md-3">
+            <div *ngIf="imagePreview" class="mt-2">
+              <img [src]="imagePreview" alt="Preview" class="img-thumbnail" style="max-height: 180px;" />
+            </div>
+          </div> -->
+
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-0">
+          <button mat-flat-button color="primary" type="submit">
+            <mat-icon class="me-1">check_circle</mat-icon> Register Employee
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</div>

@@ -1,0 +1,311 @@
+ <div class="container">
+     <!-- Header -->
+     <div class="row dashboard-header align-items-center">
+         <div class="col-md-8">
+             <h3>Welcome Back, {{username}}</h3>
+             <p>
+                 You have <strong>{{PendingLeaveCount}}</strong> pending leaves for approval. 
+                
+             </p>
+         </div>
+        
+     </div>
+
+     <style>
+         .card {
+             border: none;
+             border-radius: 1rem;
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+             transition: all 0.3s ease-in-out;
+         }
+
+             .card:hover {
+                 transform: translateY(-5px);
+                 box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+             }
+
+         .card-header-icon {
+             font-size: 1.5rem;
+             border-radius: 0.75rem;
+             padding: 0.5rem 0.7rem;
+             color: white;
+             display: inline-block;
+         }
+
+         .bg-gradient-primary {
+             background: linear-gradient(135deg, #4e73df, #224abe);
+         }
+
+         .bg-gradient-success {
+             background: linear-gradient(135deg, #1cc88a, #128c62);
+         }
+
+         .bg-gradient-warning {
+             background: linear-gradient(135deg, #f6c23e, #dda20a);
+         }
+
+         .bg-gradient-danger {
+             background: linear-gradient(135deg, #e74a3b, #c0392b);
+         }
+
+         .bg-gradient-info {
+             background: linear-gradient(135deg, #36b9cc, #1a8e99);
+         }
+
+         .metric-value {
+             font-size: 1.75rem;
+             font-weight: bold;
+             margin: 0;
+         }
+
+         .metric-label {
+             color: #6c757d;
+             font-size: 0.95rem;
+             margin-top: 0.25rem;
+         }
+
+         .list-group-item {
+             border: none;
+             background-color: #f8f9fc;
+             border-radius: 0.5rem;
+             margin-bottom: 10px;
+             padding: 1rem 1.25rem;
+         }
+
+         .section-title {
+             font-size: 1.3rem;
+             font-weight: 600;
+             margin-bottom: 15px;
+             border-left: 4px solid #4e73df;
+             padding-left: 10px;
+         }
+     </style>
+
+     <div class="row g-4 mb-4">
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-primary card-header-icon me-3">
+                         <i class="bi bi-people-fill"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">{{EmployeeCount}}</p>
+                         <p class="metric-label">Employees</p>
+                     </div>
+                 </div>
+                 <a (click)="ListofEmployee()" class="btn btn-sm btn-outline-primary mt-0 w-50">View List</a>
+             </div>
+         </div>
+
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-success card-header-icon me-3">
+                         <i class="bi bi-clipboard-check"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">{{EmployeeTotalCount}} / {{MarkedattendaceCount}}</p>
+                         <p class="metric-label">Attendance</p>
+                     </div>
+                 </div>
+                 <span class="badge bg-success mt-2">+20%</span>
+             </div>
+         </div>
+
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-info card-header-icon me-3">
+                         <i class="bi bi-briefcase"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">10 / 20</p>
+                         <p class="metric-label">Clients</p>
+                     </div>
+                 </div>
+                 <span class="badge bg-info mt-2">+20%</span>
+             </div>
+         </div>
+
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-warning card-header-icon me-3">
+                         <i class="bi bi-check2-circle"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">30 / 40</p>
+                         <p class="metric-label">Tasks</p>
+                     </div>
+                 </div>
+                 <span class="badge bg-warning text-dark mt-2">+40%</span>
+             </div>
+         </div>
+     </div>
+
+     <div class="row g-4 mb-4">
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-success card-header-icon me-3">
+                         <i class="bi bi-currency-dollar"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">$30</p>
+                         <p class="metric-label">Earnings</p>
+                     </div>
+                 </div>
+                 <span class="badge bg-success mt-2">+44%</span>
+             </div>
+         </div>
+
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-danger card-header-icon me-3">
+                         <i class="bi bi-graph-up"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">$20</p>
+                         <p class="metric-label">Weekly Profit</p>
+                     </div>
+                 </div>
+                 <span class="badge bg-danger mt-2">+33%</span>
+             </div>
+         </div>
+
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-primary card-header-icon me-3">
+                         <i class="bi bi-person-badge"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">10</p>
+                         <p class="metric-label">Job Applicants</p>
+                     </div>
+                 </div>
+                 <span class="badge bg-primary mt-2">+30%</span>
+             </div>
+         </div>
+
+         <div class="col-md-3">
+             <div class="card p-3">
+                 <div class="d-flex align-items-center">
+                     <div class="bg-gradient-info card-header-icon me-3">
+                         <i class="bi bi-person-plus"></i>
+                     </div>
+                     <div>
+                         <p class="metric-value">33 / 44</p>
+                         <p class="metric-label">New Hires</p>
+                     </div>
+                 </div>
+                 <span class="badge bg-info mt-2">+43%</span>
+             </div>
+         </div>
+     </div>
+
+
+
+     <style>
+         .card-custom {
+             background: #fff;
+             border: none;
+             border-radius: 1rem;
+             padding: 1.5rem;
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+         }
+
+         .progress {
+             height: 12px;
+             border-radius: 10px;
+             margin-bottom: 1rem;
+         }
+
+         .progress-bar {
+             font-size: 0.75rem;
+             font-weight: 600;
+         }
+
+         .attendance-status {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 1rem;
+         }
+
+         .user-avatar {
+             width: 40px;
+             height: 40px;
+             border-radius: 50%;
+             background-color: #4e73df;
+             color: white;
+             font-weight: bold;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin-right: 10px;
+             font-size: 1rem;
+         }
+
+         .clockin-item {
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+             margin-bottom: 1rem;
+             padding-bottom: 0.75rem;
+             border-bottom: 1px solid #f0f0f0;
+         }
+
+             .clockin-item:last-child {
+                 border-bottom: none;
+             }
+
+         .section-header {
+             font-size: 1.25rem;
+             font-weight: 600;
+             margin-bottom: 1rem;
+             border-left: 4px solid #4e73df;
+             padding-left: 10px;
+         }
+
+         /* Custom colors for different statuses */
+         .present-bar {
+             background-color: #28a745 !important; /* Green for Present */
+         }
+
+         .late-bar {
+             background-color: #fd7e14 !important; /* Orange for Late */
+         }
+
+         .permission-bar {
+             background-color: #007bff !important; /* Blue for Permission */
+         }
+
+         .absent-bar {
+             background-color: #dc3545 !important; /* Red for Absent */
+         }
+     </style>
+
+     <div class="row g-4 mb-3">
+         <!-- Attendance Overview -->
+         <div class="col-md-6">
+             <div class="card-custom">
+                 <div class="section-header">Attendance Overview</div>
+                
+             </div>
+         </div>
+
+         <!-- Clock-In/Out -->
+         <div class="col-md-6">
+             <div class="card-custom">
+                 <div class="section-header">Clock-In/Out</div>
+               
+             </div>
+         </div>
+     </div>
+
+
+
+
+ </div>

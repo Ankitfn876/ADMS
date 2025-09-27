@@ -1,0 +1,158 @@
+<div class="card shadow-sm mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><mat-icon color="primary">people</mat-icon> Pending leave</h5>
+
+    </div>
+
+    <div class="card-body">
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search employees..." />
+        </mat-form-field>
+
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" matSort class="table table-bordered table-hover"
+                style="min-width: 1000px">
+                <!-- All your ng-container columns -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>#</th>
+                    <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="employeeName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.employeeName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="leaveTypeName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Leave Type Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.leaveTypeName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="fromDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>FromDate</th>
+                    <td mat-cell *matCellDef="let element">{{ element.fromDate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="toDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ToDate</th>
+                    <td mat-cell *matCellDef="let element">{{ element.toDate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="leaveStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Leave Status</th>
+                    <td mat-cell *matCellDef="let element">{{ element.leaveStatus }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="reason">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Reason</th>
+                    <td mat-cell *matCellDef="let element">{{ element.reason }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element" class="text-center">
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Select status <span style="color: red;">*</span></mat-label>
+                            <mat-select (selectionChange)="onLeaveStatusChange($event.value, element)">
+                                <mat-option *ngFor="let status of Leavestatuslist" [value]="status.id">
+                                    {{ status.name }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div *ngIf="dataSource.data.length === 0" class="text-center text-muted p-3">
+                <strong>No records found.</strong>
+            </div>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+
+<div class="card shadow-sm mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><mat-icon color="primary">people</mat-icon> Approve or reject leave</h5>
+
+    </div>
+
+    <div class="card-body">
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search employees..." />
+        </mat-form-field>
+
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSourcep" matSort class="table table-bordered table-hover"
+                style="min-width: 1000px">
+                <!-- All your ng-container columns -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>#</th>
+                    <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="EmployeeName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.employeeName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="LeaveTypeName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Leave Type Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.leaveTypeName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="FromDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>FromDate</th>
+                    <td mat-cell *matCellDef="let element">{{ element.fromDate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="ToDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ToDate</th>
+                    <td mat-cell *matCellDef="let element">{{ element.toDate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="LeaveStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Leave Status</th>
+                    <td mat-cell *matCellDef="let element">{{ element.leaveStatus }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Reason">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Reason</th>
+                    <td mat-cell *matCellDef="let element">{{ element.reason }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element" class="text-center">
+                        <!-- <button mat-icon-button color="primary" (click)="openEditDialog(element)"
+                            matTooltip="Edit Employee">
+                            <mat-icon style="color: green">edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="deleteRow(element.id)"
+                            matTooltip="Delete Employee">
+                            <mat-icon style="color: red">delete</mat-icon>
+                        </button> -->
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedapColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedapColumns;"></tr>
+            </table>
+
+            <div *ngIf="dataSourcep.data.length === 0" class="text-center text-muted p-3">
+                <strong>No records found.</strong>
+            </div>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

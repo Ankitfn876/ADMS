@@ -1,0 +1,31 @@
+<div class="login-container">
+  <div class="login-left">
+    <img src="assets/images/register/img_1.png" alt="Login Illustration" />
+  </div>
+  <div class="login-right">
+    <h2>Sign in</h2>
+    <p>Welcome! Please confirm that you are visiting</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="EmailID" formControlName="EmailID" required placeholder="Email ID" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="Password" formControlName="Password" required
+        placeholder="*********" />
+
+      <div class="login-options">
+        <label><input type="checkbox" name="remember" /> Keep me signed in</label>
+        <a class="btn-primary" (click)="forgetpassword()">Forgot Password?</a>
+      </div>
+
+      <button type="submit" [disabled]="isLoading">Sign In</button>
+      <!-- Loader Overlay -->
+<div *ngIf="isLoading" class="loader-overlay">
+  <div class="loader"></div>
+</div>
+    </form>
+
+    <p class="signup-text">New User? <a class="btn btn-primary px-4" (click)="gotoregister()">Sign up here</a></p>
+  </div>
+</div>

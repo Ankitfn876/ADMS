@@ -1,0 +1,109 @@
+<h2 mat-dialog-title>Edit Employee</h2>
+<mat-dialog-content>
+  <form [formGroup]="editForm" class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Full Name <span style="color: red;">*</span></mat-label>
+          <input matInput formControlName="fName" maxlength="50"
+            (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)" (paste)="preventPaste($event)" />
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Email <span style="color: red;">*</span></mat-label>
+          <input matInput formControlName="emailID" (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)" (paste)="preventPaste($event)" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Select Gender <span style="color: red;">*</span></mat-label>
+          <mat-select formControlName="genderID">
+            <mat-option *ngFor="let gender of genderList" [value]="gender.id">
+              {{ gender.gender }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Select Marital Status <span style="color: red;">*</span></mat-label>
+          <mat-select formControlName="maritalID">
+            <mat-option *ngFor="let status of maritalList" [value]="status.id">
+              {{ status.marital }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Date of Birth <span style="color: red;">*</span></mat-label>
+          <input matInput [matDatepicker]="dob" formControlName="dob"
+            (keydown)="disableTyping($event)" [max]="today" readonly />
+          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+          <mat-datepicker #dob></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Joining Date</mat-label>
+          <input matInput [matDatepicker]="joiningPicker" formControlName="joining_Date"
+            (keydown)="disableTyping($event)" [max]="today" readonly />
+          <mat-datepicker-toggle matSuffix [for]="joiningPicker"></mat-datepicker-toggle>
+          <mat-datepicker #joiningPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Select Designation</mat-label>
+              <mat-select formControlName="designationID">
+                <mat-option value="0">-- Select Designation --</mat-option>
+                <mat-option *ngFor="let gen of Desination" [value]="gen.id">{{ gen.designationName }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+      <div class="col-md-6 mb-3">
+         <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Salary</mat-label>
+          <input matInput formControlName="salary" maxlength="10"
+            (paste)="preventPaste($event)" (keypress)="allowOnlyNumbers($event)" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Mobile <span style="color: red;">*</span></mat-label>
+          <input matInput formControlName="mobile" maxlength="10"
+            (paste)="preventPaste($event)" (keypress)="allowOnlyNumbers($event)" />
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address"
+            (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)" (paste)="preventPaste($event)" />
+        </mat-form-field>
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="px-3 pb-2">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

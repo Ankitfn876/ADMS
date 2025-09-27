@@ -1,0 +1,100 @@
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><mat-icon color="primary">people</mat-icon> Edit Employee</h5>
+        <button mat-raised-button color="primary" (click)="exportToExcel()">
+            <mat-icon>download</mat-icon> Export to Excel
+        </button>
+    </div>
+    <div class="card-body">
+    <!-- Search bar -->
+    <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search employees...">
+    </mat-form-field>
+
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-table" style="min-width: 1000px;">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+            </ng-container>
+
+            <!-- Employee Name -->
+            <ng-container matColumnDef="fName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</th>
+                <td mat-cell *matCellDef="let element">{{ element.fName }}</td>
+            </ng-container>
+
+            <!-- Email -->
+            <ng-container matColumnDef="emailID">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                <td mat-cell *matCellDef="let element">{{ element.emailID }}</td>
+            </ng-container>
+
+            <!-- Gender -->
+            <ng-container matColumnDef="genderName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+                <td mat-cell *matCellDef="let element">{{ element.genderName }}</td>
+            </ng-container>
+
+            <!-- Marital Status -->
+            <ng-container matColumnDef="marital_StatusName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Marital Status</th>
+                <td mat-cell *matCellDef="let element">{{ element.marital_StatusName }}</td>
+            </ng-container>
+
+            <!-- DOB -->
+            <ng-container matColumnDef="dob">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>DOB</th>
+                <td mat-cell *matCellDef="let element">{{ element.dob }}</td>
+            </ng-container>
+
+            <!-- Joining Date -->
+            <ng-container matColumnDef="joining_Date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Joining Date</th>
+                <td mat-cell *matCellDef="let element">{{ element.joining_Date }}</td>
+            </ng-container>
+
+            <!-- Mobile -->
+            <ng-container matColumnDef="mobile">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</th>
+                <td mat-cell *matCellDef="let element">{{ element.mobile }}</td>
+            </ng-container>
+
+            <!-- Address -->
+            <ng-container matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+                <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+            </ng-container>
+
+            <!-- Actions -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let element" class="action-buttons">
+
+                    <!-- Create Employee account -->
+                    <!-- <button mat-icon-button color="warn" (click)="createaccount(element.id,element.mobile)" matTooltip="Create user">
+          <mat-icon style="color: rgb(10, 128, 10);">people</mat-icon>
+        </button> -->
+                    <button mat-icon-button [disabled]="element.hasAccount === true || element.hasAccount === 'true'"
+                        [matTooltip]="element.hasAccount === true || element.hasAccount === 'true' ? 'Account already created' : 'Create user'"
+                        (click)="createaccount(element.id, element.mobile)">
+                        <mat-icon
+                            [ngStyle]="{ color: element.hasAccount === true || element.hasAccount === 'true' ? 'gray' : 'rgb(10, 128, 10)' }">people</mat-icon>
+                    </button>
+
+
+                </td>
+            </ng-container>
+
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

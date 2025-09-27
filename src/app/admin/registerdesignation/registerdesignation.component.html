@@ -1,0 +1,102 @@
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <mat-icon color="primary">people</mat-icon> Register Designation
+        </h5>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="content p-3">
+            <form [formGroup]="Registerform" (ngSubmit)="onSubmit()">
+                <div class="row g-3 align-items-end">
+                    <!-- Full Name -->
+                    <div class="col-md-6">
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Enter Full Name <span style="color: red;">*</span></mat-label>
+                            <input matInput formControlName="DesignationName" maxlength="50" autocomplete="off"
+                                (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)"
+                                (paste)="preventPaste($event)" />
+                        </mat-form-field>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-md-3 m-4">
+                        <button mat-flat-button color="primary" type="submit" class="w-100">
+                            <mat-icon class="me-1">check_circle</mat-icon> Register Designation
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card shadow-sm mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><mat-icon color="primary">people</mat-icon> Edit Designation</h5>
+
+    </div>
+
+    <div class="card-body">
+        <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search employees..." />
+        </mat-form-field>
+
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" matSort class="table table-bordered table-hover"
+                style="min-width: 1000px">
+                <!-- All your ng-container columns -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>#</th>
+                    <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="designationName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Designation Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.designationName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element" class="text-center">
+                        <button mat-icon-button color="primary" (click)="openEditDialog(element)" matTooltip="Edit Employee">
+                            <mat-icon style="color: green">edit</mat-icon>
+                        </button>
+
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div *ngIf="dataSource.data.length === 0" class="text-center text-muted p-3">
+                <strong>No records found.</strong>
+            </div>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+
+<!-- ✅ Modal Template (edit form inside dialog) -->
+<ng-template #editDialog let-data>
+  <h2 mat-dialog-title>Edit Designation</h2>
+  <mat-dialog-content>
+    <form [formGroup]="editForm">
+      <mat-form-field appearance="fill" class="w-100 mt-2">
+        <mat-label>Designation Name</mat-label>
+        <input matInput formControlName="designationName" maxlength="50" />
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="primary" (click)="updateDesignation()">Update</button>
+  </mat-dialog-actions>
+</ng-template>

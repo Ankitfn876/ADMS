@@ -1,0 +1,200 @@
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><mat-icon color="primary">earth</mat-icon> Register radius</h5>
+
+    </div>
+    <section class="register_section sec_ptb_120 bg_gray half_bg_white clearfix">
+        <div class="page-wrapper">
+            <div class="content p-3">
+                <form [formGroup]="radiusForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Enter Location name <span class="text-danger">*</span></mat-label>
+                                <input matInput formControlName="comapanyname" maxlength="50" autocomplete="off"
+                                    (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)" />
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Enter latitude <span class="text-danger">*</span></mat-label>
+                                <input matInput formControlName="latitude" maxlength="10" autocomplete="off"
+                                    (keypress)="allowOnlyFloat($event)" (paste)="preventPaste($event)" />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Enter longitude <span class="text-danger">*</span></mat-label>
+                                <input matInput formControlName="longitude" maxlength="10" autocomplete="off"
+                                    (keypress)="allowOnlyFloat($event)" (paste)="preventPaste($event)" />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Enter radius <span class="text-danger">*</span></mat-label>
+                                <input matInput formControlName="radiusinmeter" maxlength="10" autocomplete="off"
+                                    (keypress)="allowOnlyNumbers($event)" (paste)="preventPaste($event)" />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <button mat-flat-button color="primary" type="submit">
+                                <mat-icon class="me-1">check_circle</mat-icon> Register radius
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Radius details -->
+<div class="card shadow-sm mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><mat-icon color="primary">people</mat-icon> Edit Radius</h5>
+
+    </div>
+
+    <div class="card-body">
+
+
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" matSort class="table table-bordered table-hover"
+                style="min-width: 1000px">
+                <!-- All your ng-container columns -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>#</th>
+                    <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="comapanyname">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Location Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.comapanyname }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="latitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Latitude</th>
+                    <td mat-cell *matCellDef="let element">{{ element.latitude }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="longitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Longitude</th>
+                    <td mat-cell *matCellDef="let element">{{ element.longitude }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="radiusinmeter">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Radius in meter</th>
+                    <td mat-cell *matCellDef="let element">{{ element.radiusinmeter }}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element" class="text-center">
+                        <button mat-icon-button color="primary" (click)="openEditDialog(element, editDialog)"
+                            matTooltip="Edit Radius">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div *ngIf="dataSource.data.length === 0" class="text-center text-muted p-3">
+                <strong>No records found.</strong>
+            </div>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+
+<!-- Radius Update -->
+
+<ng-template #editDialog let-data>
+  <h2 mat-dialog-title class="mb-2">Edit Radius</h2>
+
+  <form [formGroup]="editForm" class="p-3">
+    <mat-dialog-content>
+      <div class="row g-3">
+        <!-- Location Name -->
+        <div class="col-md-6 col-lg-4">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Location Name <span class="text-danger">*</span></mat-label>
+            <input
+              matInput
+              formControlName="comapanyname"
+              maxlength="50"
+              autocomplete="off"
+              placeholder="Enter company/location name"
+              (keypress)="allowEnglishNumbersSpecialCharsAndSpace($event)"
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- Latitude -->
+        <div class="col-md-6 col-lg-4">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Latitude <span class="text-danger">*</span></mat-label>
+            <input
+              matInput
+              formControlName="latitude"
+              maxlength="10"
+              autocomplete="off"
+              placeholder="e.g. 23.0225"
+              (keypress)="allowOnlyFloat($event)"
+              (paste)="preventPaste($event)"
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- Longitude -->
+        <div class="col-md-6 col-lg-4">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Longitude <span class="text-danger">*</span></mat-label>
+            <input
+              matInput
+              formControlName="longitude"
+              maxlength="10"
+              autocomplete="off"
+              placeholder="e.g. 72.5714"
+              (keypress)="allowOnlyFloat($event)"
+              (paste)="preventPaste($event)"
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- Radius -->
+        <div class="col-md-6 col-lg-4">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Radius (in meters) <span class="text-danger">*</span></mat-label>
+            <input
+              matInput
+              formControlName="radiusinmeter"
+              maxlength="10"
+              autocomplete="off"
+              placeholder="e.g. 100"
+              (keypress)="allowOnlyNumbers($event)"
+              (paste)="preventPaste($event)"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" class="mt-4">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button color="primary" (click)="updateRadius()" [disabled]="editForm.invalid">
+        <mat-icon class="me-1">save</mat-icon> Update
+      </button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>

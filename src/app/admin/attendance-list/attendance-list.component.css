@@ -1,0 +1,7 @@
+.card {
+  border-radius: 1.25rem !important;
+}
+mat-progress-bar {
+  height: 10px;
+  border-radius: 6px;
+}
