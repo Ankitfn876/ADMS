@@ -2,13 +2,13 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: 'https://ankitfn876.github.io/ADMS/',
+  baseHref: '/',
   locale: undefined,
   routes: [
   {
     "renderMode": 2,
-    "redirectTo": "/ADMS/home",
-    "route": "/ADMS"
+    "redirectTo": "/home",
+    "route": "/"
   },
   {
     "renderMode": 2,
@@ -16,7 +16,7 @@ export default {
       "chunk-KFJUYKQN.js",
       "chunk-4MCWHOXR.js"
     ],
-    "route": "/ADMS/home"
+    "route": "/home"
   },
   {
     "renderMode": 2,
@@ -26,7 +26,7 @@ export default {
       "chunk-KJN3ZNAC.js",
       "chunk-4MCWHOXR.js"
     ],
-    "route": "/ADMS/login"
+    "route": "/login"
   },
   {
     "renderMode": 2,
@@ -38,7 +38,7 @@ export default {
       "chunk-KJN3ZNAC.js",
       "chunk-4MCWHOXR.js"
     ],
-    "route": "/ADMS/forgetpassword"
+    "route": "/forgetpassword"
   },
   {
     "renderMode": 2,
@@ -54,11 +54,11 @@ export default {
       "chunk-BEDKTKCS.js",
       "chunk-KJN3ZNAC.js"
     ],
-    "route": "/ADMS/vregister"
+    "route": "/vregister"
   },
   {
     "renderMode": 2,
-    "route": "/ADMS/Admin"
+    "route": "/Admin"
   },
   {
     "renderMode": 2,
@@ -66,7 +66,7 @@ export default {
       "chunk-BAJWQUGB.js",
       "chunk-JESCSUX2.js"
     ],
-    "route": "/ADMS/Admin/Dashboard"
+    "route": "/Admin/Dashboard"
   },
   {
     "renderMode": 2,
@@ -82,7 +82,7 @@ export default {
       "chunk-4MCWHOXR.js",
       "chunk-JESCSUX2.js"
     ],
-    "route": "/ADMS/Admin/Registeremployee"
+    "route": "/Admin/Registeremployee"
   },
   {
     "renderMode": 2,
@@ -98,7 +98,7 @@ export default {
       "chunk-KJN3ZNAC.js",
       "chunk-4MCWHOXR.js"
     ],
-    "route": "/ADMS/Admin/Edit"
+    "route": "/Admin/Edit"
   },
   {
     "renderMode": 2,
@@ -112,7 +112,7 @@ export default {
       "chunk-BEDKTKCS.js",
       "chunk-4MCWHOXR.js"
     ],
-    "route": "/ADMS/Admin/AttendanceList"
+    "route": "/Admin/AttendanceList"
   },
   {
     "renderMode": 2,
@@ -128,7 +128,7 @@ export default {
       "chunk-KJN3ZNAC.js",
       "chunk-4MCWHOXR.js"
     ],
-    "route": "/ADMS/Admin/CreateEmployeeUser"
+    "route": "/Admin/CreateEmployeeUser"
   },
   {
     "renderMode": 2,
@@ -144,14 +144,14 @@ export default {
       "chunk-VN3CQEPZ.js",
       "chunk-MS4AQ6UA.js"
     ],
-    "route": "/ADMS/Admin/Employeelist"
+    "route": "/Admin/Employeelist"
   },
   {
     "renderMode": 2,
     "preload": [
       "chunk-VRI4O2LS.js"
     ],
-    "route": "/ADMS/Admin/DeleteEmployee"
+    "route": "/Admin/DeleteEmployee"
   },
   {
     "renderMode": 2,
@@ -167,7 +167,7 @@ export default {
       "chunk-QCPT7J6I.js",
       "chunk-BEDKTKCS.js"
     ],
-    "route": "/ADMS/Admin/Updateprofile"
+    "route": "/Admin/Updateprofile"
   },
   {
     "renderMode": 2,
@@ -183,14 +183,14 @@ export default {
       "chunk-4MCWHOXR.js",
       "chunk-JESCSUX2.js"
     ],
-    "route": "/ADMS/Admin/listofemployee"
+    "route": "/Admin/listofemployee"
   },
   {
     "renderMode": 2,
     "preload": [
       "chunk-QCFUSMIP.js"
     ],
-    "route": "/ADMS/Admin/Employeedashboard"
+    "route": "/Admin/Employeedashboard"
   },
   {
     "renderMode": 2,
@@ -206,7 +206,7 @@ export default {
       "chunk-BEDKTKCS.js",
       "chunk-KJN3ZNAC.js"
     ],
-    "route": "/ADMS/Admin/Registerdesignation"
+    "route": "/Admin/Registerdesignation"
   },
   {
     "renderMode": 2,
@@ -222,7 +222,7 @@ export default {
       "chunk-BEDKTKCS.js",
       "chunk-KJN3ZNAC.js"
     ],
-    "route": "/ADMS/Admin/Registerradius"
+    "route": "/Admin/Registerradius"
   },
   {
     "renderMode": 2,
@@ -238,7 +238,7 @@ export default {
       "chunk-BEDKTKCS.js",
       "chunk-KJN3ZNAC.js"
     ],
-    "route": "/ADMS/Admin/Leavetype"
+    "route": "/Admin/Leavetype"
   },
   {
     "renderMode": 2,
@@ -254,32 +254,32 @@ export default {
       "chunk-BEDKTKCS.js",
       "chunk-KJN3ZNAC.js"
     ],
-    "route": "/ADMS/Admin/Leave"
+    "route": "/Admin/Leave"
   }
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 28621, hash: '43c760c3a3b141f9690aaf250c5c86aaeae05f356f4c51d0e8f49174a8c25ba8', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 17780, hash: '657aaaef8a8141ea55f2bdfe3c9aae3221bf8e79da5e6007999651e64a7e6702', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'login/index.html': {size: 36736, hash: '54682ff6bf80a653ea1e61d056c7f1be87b351b24a07304e2b036a9fa3e1d50d', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
-    'home/index.html': {size: 58191, hash: '0b8c0c28343efa2eef9c109d654a3b688c229bb6255f3175757e675ed1d46482', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
-    'Admin/index.html': {size: 36527, hash: 'feb4409df088f3a58c73b7e115f77c353424fe7c17f1f438d55ade928a0946ea', text: () => import('./assets-chunks/Admin_index_html.mjs').then(m => m.default)},
-    'Admin/Dashboard/index.html': {size: 36632, hash: '96a07413e1af3f56b40416710d5198dba2edcd4bd02e70bb08127365d06b4a99', text: () => import('./assets-chunks/Admin_Dashboard_index_html.mjs').then(m => m.default)},
-    'Admin/Edit/index.html': {size: 37048, hash: 'fe86e6348185606892615ec296f0d2ddb4bad94c0798b0cf91dc844cdb0765c1', text: () => import('./assets-chunks/Admin_Edit_index_html.mjs').then(m => m.default)},
-    'Admin/Registeremployee/index.html': {size: 37048, hash: 'dc39a209441cb5ab6ca0df820520a85c4ffb4c2c25935a21b69fb66085b04eb6', text: () => import('./assets-chunks/Admin_Registeremployee_index_html.mjs').then(m => m.default)},
-    'forgetpassword/index.html': {size: 92590, hash: '812e113f051d3c5f9db1707092ac1188da5f6274a3ccc0b2af40dd42784f821c', text: () => import('./assets-chunks/forgetpassword_index_html.mjs').then(m => m.default)},
-    'Admin/AttendanceList/index.html': {size: 36944, hash: '05362570ec19098464d0b418298342b92975aa9776fbc9515ce2c77f009c96e7', text: () => import('./assets-chunks/Admin_AttendanceList_index_html.mjs').then(m => m.default)},
-    'vregister/index.html': {size: 114859, hash: '0118d236e87b4201fc80df8aac2b015c77faf8a1af70a2e30537df703d968085', text: () => import('./assets-chunks/vregister_index_html.mjs').then(m => m.default)},
-    'Admin/CreateEmployeeUser/index.html': {size: 37048, hash: '86b4a36a6f6c4c68cfaf7211ccfbe6b2dc0d087555fce23a6956cb65278393dc', text: () => import('./assets-chunks/Admin_CreateEmployeeUser_index_html.mjs').then(m => m.default)},
-    'Admin/Employeelist/index.html': {size: 37049, hash: '3af4abdbda3f609aec61b5daca13fe6f7df3f9ace8c6dde8e6b5f2e35a7fbb78', text: () => import('./assets-chunks/Admin_Employeelist_index_html.mjs').then(m => m.default)},
-    'Admin/DeleteEmployee/index.html': {size: 36580, hash: '8cd0619ed851a144b3c06306f86583047d8fef490b05b9e2c5b7938329a41672', text: () => import('./assets-chunks/Admin_DeleteEmployee_index_html.mjs').then(m => m.default)},
-    'Admin/Employeedashboard/index.html': {size: 36581, hash: '2660b7ddafa3b5290993da171b22ceec7d19cf69d7c0297bb842eb91efcc7446', text: () => import('./assets-chunks/Admin_Employeedashboard_index_html.mjs').then(m => m.default)},
-    'Admin/listofemployee/index.html': {size: 37048, hash: '7a3244ef5a6780632a1e90b773053b4516c4ea485b9e94f33c94b9bc6ff24d80', text: () => import('./assets-chunks/Admin_listofemployee_index_html.mjs').then(m => m.default)},
-    'Admin/Leavetype/index.html': {size: 37048, hash: 'cb9a15c104e884636aac76d7d577c5693ba0dfefb437f5bcd6010730225c7403', text: () => import('./assets-chunks/Admin_Leavetype_index_html.mjs').then(m => m.default)},
-    'Admin/Registerdesignation/index.html': {size: 37048, hash: '90e21419b17fabe9a605e62e050fdcc38f09c6bfe9f9a4a9cd71cd084ce5b517', text: () => import('./assets-chunks/Admin_Registerdesignation_index_html.mjs').then(m => m.default)},
-    'Admin/Registerradius/index.html': {size: 37049, hash: '6958654943218ee30c2164d53c7dd6a4629576313e05cb33dbd58d264cf46c4a', text: () => import('./assets-chunks/Admin_Registerradius_index_html.mjs').then(m => m.default)},
-    'Admin/Updateprofile/index.html': {size: 37049, hash: 'c534483b2fd6e2539e77e207f52c9b27e4bb12188af72186d1b531d443648b75', text: () => import('./assets-chunks/Admin_Updateprofile_index_html.mjs').then(m => m.default)},
-    'Admin/Leave/index.html': {size: 37048, hash: 'ade0bf60baeb7923d946bfcda337ac4eca48d62a52178ab0ca3555707f96fab7', text: () => import('./assets-chunks/Admin_Leave_index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 28588, hash: '8a0236708fa7f2ca11d668246f2af94cc872e7b6dca12afbe088dcb0e522b01e', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 17747, hash: 'bf460ac9a39edaf34c69583f04c4d91ca2f07a642ad19e6d564cf6c1cbcc548b', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'login/index.html': {size: 36703, hash: '03fa47abc124bcbfd94a6a8a5ccc410a46b527136c9a6b9ddcc3687ad1e71a18', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
+    'forgetpassword/index.html': {size: 92557, hash: '9f2917197e83a281c205e13fca61d25f2711482d5e573fd4e5efb976ad57a648', text: () => import('./assets-chunks/forgetpassword_index_html.mjs').then(m => m.default)},
+    'home/index.html': {size: 58158, hash: 'c46dc3cef091fe0babd59f3fe59ebb0674eff0b7b39eb6bed4d02a2cec92d806', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
+    'Admin/index.html': {size: 36494, hash: '2dc6131cb1661ba132f651abbcdf9c397cba56cf84529920b13d81b22d3f5763', text: () => import('./assets-chunks/Admin_index_html.mjs').then(m => m.default)},
+    'Admin/Registeremployee/index.html': {size: 37015, hash: 'a78f5f1ced7496d276e8ada73350d2b8e5e80580756b14c607291e575a94b8ac', text: () => import('./assets-chunks/Admin_Registeremployee_index_html.mjs').then(m => m.default)},
+    'Admin/Dashboard/index.html': {size: 36600, hash: 'df9d1148c950b8c5b043b1d015d456ae67a1b3591ca922fc6d34ecc79ecd8c0d', text: () => import('./assets-chunks/Admin_Dashboard_index_html.mjs').then(m => m.default)},
+    'Admin/Edit/index.html': {size: 37015, hash: '4181b6329b0e1b4e7650a284e557c47c1a146b8b76ca25a0243977cb42cab7f8', text: () => import('./assets-chunks/Admin_Edit_index_html.mjs').then(m => m.default)},
+    'Admin/Employeelist/index.html': {size: 37015, hash: '80416d9f02ef16b1de3261a3601ddf686e8bdd3bd2a446b15feb38e54c1597e1', text: () => import('./assets-chunks/Admin_Employeelist_index_html.mjs').then(m => m.default)},
+    'Admin/AttendanceList/index.html': {size: 36911, hash: '650941b3446cd8d5545bd046587827e6d5577b925afb2ddbd14936e160cbe8f3', text: () => import('./assets-chunks/Admin_AttendanceList_index_html.mjs').then(m => m.default)},
+    'Admin/CreateEmployeeUser/index.html': {size: 37016, hash: 'c404872d39e1d5f654171c627b2048831ce20c0aabb4e9c27e53310873e3c9a2', text: () => import('./assets-chunks/Admin_CreateEmployeeUser_index_html.mjs').then(m => m.default)},
+    'vregister/index.html': {size: 114826, hash: '72a8fd5e40be9976e9ca490eb55d50a2d79454f803d94ed01e51ccb9b996762f', text: () => import('./assets-chunks/vregister_index_html.mjs').then(m => m.default)},
+    'Admin/DeleteEmployee/index.html': {size: 36547, hash: '0f61372d80b130b88ea3a4dae9c72a624a472b09e8ac97f2d40ed66188aa381f', text: () => import('./assets-chunks/Admin_DeleteEmployee_index_html.mjs').then(m => m.default)},
+    'Admin/Updateprofile/index.html': {size: 37015, hash: '1b10819e29a04da559561e8e120f5524d7f25f932bc939930bc9aaed0bcc9bfc', text: () => import('./assets-chunks/Admin_Updateprofile_index_html.mjs').then(m => m.default)},
+    'Admin/listofemployee/index.html': {size: 37016, hash: '63530e6c613351a371026641d3623cdf921382b70b224216a3d29938a0e01ae0', text: () => import('./assets-chunks/Admin_listofemployee_index_html.mjs').then(m => m.default)},
+    'Admin/Employeedashboard/index.html': {size: 36548, hash: '2b557ea85389b09c8f7d6bd4490ad0f290e999bbb2044785699af4d7451a7d2d', text: () => import('./assets-chunks/Admin_Employeedashboard_index_html.mjs').then(m => m.default)},
+    'Admin/Registerdesignation/index.html': {size: 37015, hash: '862c472364845b498d347c13f49bcee4917242f528f1bab0c840f4f4a42fd3c9', text: () => import('./assets-chunks/Admin_Registerdesignation_index_html.mjs').then(m => m.default)},
+    'Admin/Registerradius/index.html': {size: 37015, hash: 'b7b0730f66f9979b390670776ed4fc32f5e494f4233bda2968708724dda5e254', text: () => import('./assets-chunks/Admin_Registerradius_index_html.mjs').then(m => m.default)},
+    'Admin/Leavetype/index.html': {size: 37016, hash: 'c4c8aaa9a3fd6f169c4ca28840064462136b1f8ca65ee0c309f8500cef38868a', text: () => import('./assets-chunks/Admin_Leavetype_index_html.mjs').then(m => m.default)},
+    'Admin/Leave/index.html': {size: 37016, hash: 'd9a563bfa94bd662d0fc53054129b7f0ff67c84c6b9c549b7792fe54c258aec0', text: () => import('./assets-chunks/Admin_Leave_index_html.mjs').then(m => m.default)},
     'styles-TMIBS6IZ.css': {size: 331236, hash: 'TVm+7XW4LpM', text: () => import('./assets-chunks/styles-TMIBS6IZ_css.mjs').then(m => m.default)}
   },
 };

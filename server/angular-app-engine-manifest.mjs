@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'https://ankitfn876.github.io/ADMS',
+  basePath: '/',
   supportedLocales: {
   "en-US": ""
 },

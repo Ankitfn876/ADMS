@@ -3,7 +3,7 @@ export default `<!doctype html>
 <head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <meta charset="utf-8">
   <title>ADMS</title>
-  <base href="https://ankitfn876.github.io/ADMS/">
+  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- css include -->
