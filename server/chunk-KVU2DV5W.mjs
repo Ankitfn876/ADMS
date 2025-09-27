@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{Eb as a,Fb as n,Xb as p,ib as t}from"./chunk-HTCMEWBL.mjs";import"./chunk-S6KH3LOX.mjs";var m=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["app-employeedashboard"]],decls:2,vars:0,template:function(e,d){e&1&&(a(0,"p"),p(1,"employeedashboard works!"),n())},encapsulation:2})};export{m as EmployeedashboardComponent};

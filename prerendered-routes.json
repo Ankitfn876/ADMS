@@ -1,0 +1,24 @@
+{
+  "routes": {
+    "/ADMS": {},
+    "/ADMS/Admin": {},
+    "/ADMS/Admin/AttendanceList": {},
+    "/ADMS/Admin/CreateEmployeeUser": {},
+    "/ADMS/Admin/Dashboard": {},
+    "/ADMS/Admin/DeleteEmployee": {},
+    "/ADMS/Admin/Edit": {},
+    "/ADMS/Admin/Employeedashboard": {},
+    "/ADMS/Admin/Employeelist": {},
+    "/ADMS/Admin/Leave": {},
+    "/ADMS/Admin/Leavetype": {},
+    "/ADMS/Admin/Registerdesignation": {},
+    "/ADMS/Admin/Registeremployee": {},
+    "/ADMS/Admin/Registerradius": {},
+    "/ADMS/Admin/Updateprofile": {},
+    "/ADMS/Admin/listofemployee": {},
+    "/ADMS/forgetpassword": {},
+    "/ADMS/home": {},
+    "/ADMS/login": {},
+    "/ADMS/vregister": {}
+  }
+}

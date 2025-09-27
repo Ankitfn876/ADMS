@@ -1,0 +1,1 @@
+import{Gb as a,Hb as n,Zb as p,mb as t}from"./chunk-XPAMC2KH.js";var m=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["app-employeedashboard"]],decls:2,vars:0,template:function(e,d){e&1&&(a(0,"p"),p(1,"employeedashboard works!"),n())},encapsulation:2})};export{m as EmployeedashboardComponent};

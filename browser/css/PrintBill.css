@@ -1,0 +1,78 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Set 80mm width for thermal printer */
+.receipt {
+    width: 80mm;
+    max-width: 80mm;
+    padding: 10px;
+}
+
+h2 {
+    margin: 5px 0;
+}
+
+.invoice-details {
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border-bottom: 1px dashed #000;
+    padding: 5px;
+    font-size: 12px;
+}
+
+th {
+    text-align: left;
+}
+
+.total {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    padding-top: 10px;
+}
+
+@page {
+    size: 80mm 80mm; /* Exact 100mm x 100mm */
+    margin: 0; /* No extra margins */
+}
+
+/* Hide button when printing */
+@media print {
+    #printButton {
+        display: none;
+    }
+
+
+
+    .print-section {
+        background-image: url('your-image.jpg');
+        background-size: 100% 100%; /* Stretch to full width & height */
+        background-repeat: no-repeat;
+    }
+
+    body {
+        width: 100mm;
+        height: 100mm;
+        margin: 0;
+        padding: 0;
+    }
+
+    background-size: 100mm 100mm; /* For A4 size */
+}
